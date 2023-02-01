@@ -960,7 +960,7 @@ class ID3(Tree):
         # 仍有可用数据
         if np.any(root.mask1) and np.any(root.mask2):
             # 已经完美分类则退出
-            if np.all(self.y[mask1] == self.y[mask1][0]):
+            if np.all(self.y[root.mask1] == self.y[root.mask1][0]):
                 return root
             # 选取条件熵最小的特征
             info_gain = [self.info_gain(root.mask1, k) for k in self.cols[root.mask2]]
